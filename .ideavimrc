@@ -1,0 +1,89 @@
+" TODO
+
+" =============== Base Settings ===============
+set scrolloff=10
+set history=1000
+set number relativenumber
+set showmode
+set showcmd
+set smartcase
+set incsearch
+set hlsearch
+set visualbell
+
+" =============== General ===============
+" Set leader key
+nnoremap <Space> <Nop>
+let mapleader = " "
+
+" Disable Q in normal mode
+nmap <Q> <Nop>
+
+" Insert mode exit with jk
+inoremap jk <Esc>
+
+" Visual mode exit with jkjk
+vnoremap jkjk <Esc>
+
+" Clear search highlight with Escape
+nmap <Esc> :nohlsearch<CR>
+
+" Visual Block (use Alt+V if possible)
+nmap <A-v> <C-q>
+
+" =============== Clipboard ===============
+" Copy to clipboard in visual mode
+vmap <C-c> "+y
+
+" Paste from clipboard without auto-indentation in normal mode
+nmap <C-v> "+p
+
+" Paste from clipboard without auto-indentation in visual mode
+vmap <C-v> "+p
+
+" Paste from clipboard in insert mode
+imap <C-v> <C-r>+
+
+" Black hole paste in visual mode
+vmap <leader>p "_dP
+
+" =============== File Navigation ===============
+" Close tab
+nmap <leader>q :q<CR>
+
+" Write to file
+nmap <leader>w <C-s>
+
+" =============== Cursor Movement ===============
+" Move up and down by 5 lines in normal and visual modes
+nmap <S-j> 5j
+nmap <S-k> 5k
+vmap <S-j> 5j
+vmap <S-k> 5k
+
+" Centered scrolling and navigation
+nmap <C-j> <C-d>zz
+nmap <C-k> <C-u>zz
+
+" Start and end of line navigation
+nmap H ^
+nmap L $
+vmap H 0
+vmap L $
+
+" Jump between methods
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" Move lines up/down in visual mode
+vmap <A-j> :m '>+1<CR>gv=gv
+vmap <A-k> :m '<-2<CR>gv=gv
+
+" ================== Search ==================
+" Copy word under cursor and open Find menu
+nmap <C-f> "+yiw<Action>(Find)
+
+" ================== Window Management ==================
+" Tab navigation
+nmap <C-p> <Action>(PreviousTab)
+nmap <C-n> <Action>(NextTab)
